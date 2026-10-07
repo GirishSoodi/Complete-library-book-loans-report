@@ -1,0 +1,72 @@
+# Community Library Book Loans Report
+
+A SQL project that manages library members and book loans and reports which books are still on loan.
+
+## Project Files
+
+- `schema.sql` — Creates the `members` and `loans` tables.
+- `loans_report.sql` — Inserts library members and loan records, lists all members, and reports books that have not yet been returned.
+- `tests/test_loans_report.py` — Automated tests that verify the SQL scripts and report results.
+
+## Database Schema
+
+### Members
+
+The `members` table stores:
+
+- Member ID
+- Member name
+- Member email
+
+### Loans
+
+The `loans` table stores:
+
+- Loan ID
+- Member ID
+- Book title
+- Loan date
+- Return date
+
+A `NULL` `return_date` means the book is still on loan.
+
+## Report
+
+The final SQL query joins `loans` with `members` and returns only books where:
+
+```sql
+return_date IS NULL
+```
+
+The report shows:
+
+| book_title | name |
+|---|---|
+| The Great Gatsby | Alice Smith |
+
+## Running the Tests
+
+From the project root, run:
+
+```bash
+python -m unittest discover -s tests -p "test_*.py" -v
+```
+
+The project should pass all six automated tests:
+
+```text
+Ran 6 tests
+OK
+```
+
+## Running in DBeaver
+
+1. Open the project database in DBeaver.
+2. Run `schema.sql` to create the tables.
+3. Run `loans_report.sql`.
+4. Verify the member records and loan report.
+5. Confirm that only books with a `NULL` return date appear in the final report.
+
+## Git
+
+The project is maintained in Git and pushed to GitHub as part of the learning task.
