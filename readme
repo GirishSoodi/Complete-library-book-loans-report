@@ -1,6 +1,6 @@
 # Community Library Book Loans Report
 
-A SQL project that manages library members and book loans and reports which books are still on loan.
+This project demonstrates how SQL can be used to track library members, manage book loans, and identify books that are currently borrowed.
 
 ## Project Files
 
